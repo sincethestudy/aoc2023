@@ -1,0 +1,2 @@
+hands, bids = zip(*[line.split() for line in open('input.txt').read().splitlines()])
+print(sum([int(bids[hands.index(x)])*(i+1) for i, x in enumerate(reversed(sorted(hands, key=lambda hand: (tuple(sorted([hand.count(x) for x in set(hand)], reverse=True)), [-'AKQJT98765432'.index(x) for x in hand]), reverse=True)))]))
